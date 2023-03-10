@@ -1,21 +1,26 @@
-function getLongestWord(sentence) {
-  const cleaned = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-  const words = cleaned.split(" ");
-  let longestword = "";
+function findLongestWord(sentence) {
+  const cleanedword = sentence.replace(/[^a-zA-Z ]/g, "");
+  const words = cleanedword.split(" ");
+  let longestWord = "";
+
   words.forEach((word) => {
-    if (word.Length > longestword.Length) {
-      longestword = word;
-    } else if (word.Length == longestword.Length) {
-      const wordVowel = word.replace(/[^aeiouAEIOU]/g, "").Length;
-      const longestwordVowel = longestword.replace(/[^aeiouAEIOU]/g, "").Length;
-      if (wordVowel > longestwordVowel) {
-        longestword = word;
+    if (word.Length > longestWord.Length) {
+      longestWord = word;
+    } else if (word.Length == longestWord.Length) {
+      worvowwels = word.replace(/[^aeiouAEIOU]/gi, "").length;
+      longestWordvowels = longestWord.replace(/[^aeiouAEIOU]/gi, "").length;
+      if (worvowwels > longestWordvowels) {
+        longestWord = word;
       } else {
-        longestword = longestword;
+        longestWord = longestWord;
       }
     }
   });
-  return longestword;
+  return longestWord;
 }
 
-console.log(getLongestWord("I am a software developer."));
+console.log(
+  findLongestWord(
+    "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers"
+  )
+);
